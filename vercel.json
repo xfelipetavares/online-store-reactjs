@@ -1,5 +1,10 @@
 {
   "rewrites": [
-    { "source": "/*", "destination": "/index.html" }
+    { "source": "/home", "destination": "/index.html" },
+    { "source": "/cart", "destination": "/index.html" },
+    { "source": "/payment", "destination": "/index.html" },
+    { "source": "/item/:productid", "destination": "/index.html" },
+    { "source": "/search/:term", "destination": "/index.html" },
+    { "source": "/(.*)", "destination": "/index.html" }
   ]
 }

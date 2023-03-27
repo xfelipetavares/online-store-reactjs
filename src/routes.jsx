@@ -12,7 +12,7 @@ const SrcRoutes = () => (
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/search/:product" element={<Search />} />
+      <Route path="/search/:term" element={<Search />} />
       <Route path="/cart" element={<Cart />} />
       <Route path="/payment" element={<Payment />} />
       <Route path="/item/:productId" element={<ProductDetails />} />
