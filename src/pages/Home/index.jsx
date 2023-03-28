@@ -1,5 +1,6 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { searchProducts } from '../../helpers/mercado_livre_api'
 import { counter } from '../../redux/actions'
 
 // import { Container } from './styles';
@@ -18,6 +19,11 @@ const Home = () => {
         }}
       >
         Soma
+      </button>
+      <button
+        onClick={async () => console.log(await searchProducts('computador'))}
+      >
+        oi
       </button>
     </>
   )
