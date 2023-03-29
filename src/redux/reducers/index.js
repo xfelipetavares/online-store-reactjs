@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux'
-import { cartCounter } from './cart'
+import { api } from './api'
 
 export default combineReducers({
-  cartCounter,
+  api,
 })

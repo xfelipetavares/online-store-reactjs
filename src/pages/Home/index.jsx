@@ -1,32 +1,18 @@
-import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { searchProducts } from '../../helpers/mercado_livre_api'
-import { counter } from '../../redux/actions'
+import React, { useEffect } from 'react'
+import { useDispatch } from 'react-redux'
+import { getCategories, getProduct } from '../../helpers/mercado_livre_api'
 
 // import { Container } from './styles';
 
 const Home = () => {
-  const count = useSelector((state) => state.cartCounter.itemCounter)
   const dispatch = useDispatch()
 
-  return (
-    <>
-      <h1>{count}</h1>
-      <a href="#">coisa</a>
-      <button
-        onClick={() => {
-          dispatch(counter(2))
-        }}
-      >
-        Soma
-      </button>
-      <button
-        onClick={async () => console.log(await searchProducts('computador'))}
-      >
-        oi
-      </button>
-    </>
-  )
+  useEffect(() => {
+    dispatch(getCategories())
+    dispatch(getProduct('MLB3223071375'))
+  })
+
+  return <h1>oi</h1>
 }
 
 export default Home
