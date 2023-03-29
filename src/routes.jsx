@@ -4,8 +4,8 @@ import Home from './pages/Home'
 import Search from './pages/Search'
 import Cart from './pages/Cart'
 import Payment from './pages/Payment'
-import ProductDetails from './pages/ProductDetails'
 import NotFound from './pages/NotFound'
+import Product from './pages/Product'
 // import { Container } from './styles';
 
 const SrcRoutes = () => (
@@ -15,7 +15,7 @@ const SrcRoutes = () => (
       <Route path="/search/:term" element={<Search />} />
       <Route path="/cart" element={<Cart />} />
       <Route path="/payment" element={<Payment />} />
-      <Route path="/item/:productId" element={<ProductDetails />} />
+      <Route path="/item/:productId" element={<Product />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   </BrowserRouter>

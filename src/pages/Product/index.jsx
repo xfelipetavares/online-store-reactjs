@@ -2,8 +2,8 @@ import React from 'react'
 
 // import { Container } from './styles';
 
-function ProductDetails() {
+function Product() {
   return <div />
 }
 
-export default ProductDetails
+export default Product
