@@ -27,31 +27,31 @@ body {
   width: 100%;
   background: #282a36;
   color: var(--white);
+  height: 100vh;
 
   h1 {
-    font-size: 3rem;
+    font-size: 36px;
   }
-
+  
   h2 {
-    font-size: 3.8rem;
+    font-size: 28px;
   }
-
+  
   h3 {
-    font-size: 3.5rem;
+    font-size: 22px;
   }
-
+  
   h4 {
-    font-size: 2.8rem;
+    font-size: 20px;
   }
-
+  
   h5 {
-    font-size: 2.2rem;
+    font-size: 18px;
   }
-
+  
   h6 {
-    font-size: 1.8rem;
+    font-size: 12px;
   }
-
 
   button {
     cursor: pointer;
