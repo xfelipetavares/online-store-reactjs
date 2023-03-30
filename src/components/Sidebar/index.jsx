@@ -18,7 +18,7 @@ const Sidebar = () => {
       <h3 className={styles.h3}>Categories</h3>
       {categories.map(({ id, name }) => (
         <ul key={id}>
-          <button className={styles.categorie}>{name}</button>
+          <button className={styles.category}>{name}</button>
         </ul>
       ))}
     </div>
