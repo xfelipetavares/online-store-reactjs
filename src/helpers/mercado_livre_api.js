@@ -2,7 +2,6 @@ import {
   saveCategories,
   saveDescription,
   saveProduct,
-  saveProductsImgs,
   saveQuestions,
   saveSearchProducts,
 } from '../redux/actions/api'
@@ -23,10 +22,10 @@ export const getProduct = (productId) => async (dispatch) => {
 }
 
 // test it! https://api.mercadolibre.com/pictures/838384-MLA53431280771_012023
-export const getProductsImage = (productImageId) => async (dispatch) => {
+export const getProductsImage = async (productImageId) => {
   const response = await fetch(`${baseUrl}pictures/${productImageId}`)
   const data = await response.json()
-  dispatch(saveProductsImgs(data))
+  return data.variations[0].url
 }
 
 // test it! https://api.mercadolibre.com/items/MLB3223071375/description
@@ -37,9 +36,11 @@ export const getDescription = (productId) => async (dispatch) => {
 }
 
 // test it! https://api.mercadolibre.com/sites/MLB/search?q=computador
-export const searchProducts = (term) => async (dispatch) => {
+export const searchProducts = (term, categoryId) => async (dispatch) => {
   const response = await fetch(
-    `${baseUrl}sites/MLB/search?q=${term || '$QUERY'}`,
+    `${baseUrl}sites/MLB/search?q=${term || '$QUERY'}?category=${
+      categoryId || '$CATEGORY_ID'
+    }`,
   )
   const data = await response.json()
   dispatch(saveSearchProducts(data))
