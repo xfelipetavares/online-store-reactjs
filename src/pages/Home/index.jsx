@@ -1,18 +1,24 @@
 import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
-import { getCategories, getProduct } from '../../helpers/mercado_livre_api'
-
+import Title from '../../components/Title'
+import { searchProducts } from '../../helpers/mercado_livre_api'
 // import { Container } from './styles';
 
 const Home = () => {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    dispatch(getCategories())
-    dispatch(getProduct('MLB3223071375'))
+    dispatch(searchProducts())
   })
 
-  return <h1>oi</h1>
+  return (
+    <div>
+      <Title>Trending</Title>
+      <main>
+        <p>card</p>
+      </main>
+    </div>
+  )
 }
 
 export default Home
