@@ -38,7 +38,9 @@ export const getDescription = (productId) => async (dispatch) => {
 
 // test it! https://api.mercadolibre.com/sites/MLB/search?q=computador
 export const searchProducts = (term) => async (dispatch) => {
-  const response = await fetch(`${baseUrl}sites/MLB/search?q=${term}`)
+  const response = await fetch(
+    `${baseUrl}sites/MLB/search?q=${term || '$QUERY'}`,
+  )
   const data = await response.json()
   dispatch(saveSearchProducts(data))
 }
