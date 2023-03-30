@@ -5,26 +5,22 @@ import lupa from '../../assets/lupa.svg'
 import cart from '../../assets/cart.svg'
 
 import styles from './styles.module.scss'
-import Sidebar from '../Sidebar'
 
 const Header = () => {
   return (
-    <>
-      <header className={styles.header}>
-        <div className={styles.logo}>
-          <div className={styles.bag}>
-            <img src={logo} alt="" className={styles.img} />
-          </div>
-          <h1 className={styles.h1}> online store </h1>
+    <header className={styles.header}>
+      <div className={styles.logo}>
+        <div className={styles.bag}>
+          <img src={logo} alt="" className={styles.img} />
         </div>
-        <div className={styles.search}>
-          <input className={styles.input} type="text" placeholder="Search" />
-          <img className={styles.lupa} src={lupa} alt="" />
-        </div>
-        <img src={cart} alt="" className={styles.cart} />
-      </header>
-      {/* <Sidebar /> */}
-    </>
+        <h1 className={styles.h1}> online store </h1>
+      </div>
+      <div className={styles.search}>
+        <input className={styles.input} type="text" placeholder="Search" />
+        <img className={styles.lupa} src={lupa} alt="" />
+      </div>
+      <img src={cart} alt="" className={styles.cart} />
+    </header>
   )
 }
 

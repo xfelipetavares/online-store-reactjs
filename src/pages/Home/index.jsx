@@ -1,23 +1,28 @@
-import React, { useEffect } from 'react'
-import { useDispatch } from 'react-redux'
+import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import ProductCard from '../../components/ProductCard'
 import Title from '../../components/Title'
 import { searchProducts } from '../../helpers/mercado_livre_api'
-// import { Container } from './styles';
+import styles from './styles.module.scss'
 
 const Home = () => {
   const dispatch = useDispatch()
+  const [title] = useState('Trending')
+  const products = useSelector((store) => store.api.search)
 
   useEffect(() => {
     dispatch(searchProducts())
-  })
+  }, [dispatch])
 
   return (
-    <div>
-      <Title>Trending</Title>
-      <main>
-        <p>card</p>
-      </main>
-    </div>
+    <main>
+      <Title>{title}</Title>
+      <div className={styles.products}>
+        {products.map((product) => (
+          <ProductCard key={product.id} product={product} />
+        ))}
+      </div>
+    </main>
   )
 }
 

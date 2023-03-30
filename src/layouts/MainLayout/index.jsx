@@ -1,12 +1,16 @@
 import React from 'react'
+import Header from '../../components/Header'
+import Sidebar from '../../components/Sidebar'
 import SrcRoutes from '../../routes'
-
-// import { Container } from './styles';
+import styles from './styles.module.scss'
 
 const MainLayout = () => (
-  <div>
-    {/* <Header /> */}
-    <SrcRoutes />
+  <div className={styles.layout}>
+    <Header />
+    <div className={styles.main}>
+      <Sidebar />
+      <SrcRoutes />
+    </div>
   </div>
 )
 

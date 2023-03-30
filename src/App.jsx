@@ -1,5 +1,5 @@
-import SrcRoutes from './routes'
+import MainLayout from './layouts/MainLayout'
 
-const App = () => <SrcRoutes />
+const App = () => <MainLayout />
 
 export default App
