@@ -6,16 +6,20 @@
   --header-height: 8rem;
   --sidebar-width: 24rem;
 
-  --yellow-500: #FFE901;
-  --yellow-400: #FFF159;
-  --blue-500: #0461EA;
-  --blue-600: #2A4494;
-  --green-500: #22C05A;
-  --green-600: #20A650;
-  --white: #FFFFFF;
-  --gray-500: #F4F4F4;
+  --yellow-500: #ffe901;
+  --yellow-400: #fff159;
+  --blue-500: #0461ea;
+  --blue-600: #2a4494;
+  --green-500: #22c05a;
+  --green-600: #20a650;
+  --white: #ffffff;
+  --gray-500: #f4f4f4;
   --gray-600: #676767;
-  --gray-400: #F9F9F9;
+  --gray-400: #f9f9f9;
+
+  *::-webkit-scrollbar {
+    width: 0;
+  }
 }
 
 * {
@@ -35,23 +39,23 @@ body {
   h1 {
     font-size: 36px;
   }
-  
+
   h2 {
     font-size: 28px;
   }
-  
+
   h3 {
     font-size: 22px;
   }
-  
+
   h4 {
     font-size: 20px;
   }
-  
+
   h5 {
     font-size: 18px;
   }
-  
+
   h6 {
     font-size: 12px;
   }
@@ -62,5 +66,9 @@ body {
 
   a {
     text-decoration: none;
+  }
+
+  a:visited {
+    color: initial;
   }
 }

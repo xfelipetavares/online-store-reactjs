@@ -7,9 +7,11 @@ import styles from './styles.module.scss'
 const MainLayout = () => (
   <div className={styles.layout}>
     <Header />
-    <div className={styles.main}>
+    <div className={styles.sidebar}>
       <Sidebar />
-      <SrcRoutes />
+      <div className={styles.main}>
+        <SrcRoutes />
+      </div>
     </div>
   </div>
 )

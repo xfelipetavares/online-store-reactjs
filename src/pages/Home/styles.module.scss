@@ -3,6 +3,7 @@ main {
   height: calc(100vh - var(--header-height));
   overflow-y: scroll;
   border: 1px solid red;
+  margin-left: auto;
 }
 
 .products {
