@@ -28,6 +28,31 @@ body {
   background: #282a36;
   color: var(--white);
 
+  h1 {
+    font-size: 3rem;
+  }
+
+  h2 {
+    font-size: 3.8rem;
+  }
+
+  h3 {
+    font-size: 3.5rem;
+  }
+
+  h4 {
+    font-size: 2.8rem;
+  }
+
+  h5 {
+    font-size: 2.2rem;
+  }
+
+  h6 {
+    font-size: 1.8rem;
+  }
+
+
   button {
     cursor: pointer;
   }
