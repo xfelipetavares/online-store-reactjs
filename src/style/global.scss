@@ -16,6 +16,8 @@
   --gray-500: #F4F4F4;
   --gray-600: #676767;
   --gray-400: #F9F9F9;
+
+
 }
 
 * {
@@ -29,8 +31,7 @@ body {
   font-family: Poppins;
   width: 100%;
   height: 100vh;
-  background: #282a36;
-  color: var(--white);
+  background: var(--gray-500);
 
   h1 {
     font-size: 36px;
@@ -63,4 +64,5 @@ body {
   a {
     text-decoration: none;
   }
+  
 }
