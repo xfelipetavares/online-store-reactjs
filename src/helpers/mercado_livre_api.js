@@ -36,15 +36,15 @@ export const getDescription = (productId) => async (dispatch) => {
 }
 
 // test it! https://api.mercadolibre.com/sites/MLB/search?q=computador
-export const searchProducts = (term, categoryId) => async (dispatch) => {
-  const response = await fetch(
-    `${baseUrl}sites/MLB/search?q=${term || '$QUERY'}?category=${
-      categoryId || '$CATEGORY_ID'
-    }`,
-  )
-  const data = await response.json()
-  dispatch(saveSearchProducts(data))
-}
+export const searchProducts =
+  (term = '$QUERY', categoryId = '$CATEGORY_ID') =>
+  async (dispatch) => {
+    const response = await fetch(
+      `${baseUrl}sites/MLB/search?q=${term}?category=${categoryId}`,
+    )
+    const data = await response.json()
+    dispatch(saveSearchProducts(data))
+  }
 
 // test it! https://api.mercadolibre.com/questions/search?item_id=MLB3223071375
 export const getQuestions = (productId) => async (dispatch) => {
