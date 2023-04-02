@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux'
 
 const Title = () => {
   const term = useSelector((store) => store.api.term)
-  return <h2>{term || 'Trending'}</h2>
+  return `${term || 'Trending'}`
 }
 
 export default Title

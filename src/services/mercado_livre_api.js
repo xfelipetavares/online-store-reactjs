@@ -5,6 +5,7 @@ import {
   saveQuestions,
   saveSearchProducts,
 } from '../redux/actions/api'
+import { searchLoading } from '../redux/actions/loadings'
 const baseUrl = 'https://api.mercadolibre.com/'
 
 // test it! https://api.mercadolibre.com/sites/MLB/categories
@@ -33,24 +34,29 @@ export const getDescription = (productId) => async (dispatch) => {
   const response = await fetch(`${baseUrl}items/${productId}/description`)
   const data = await response.json()
   dispatch(saveDescription(data))
+  return data.plain_text
 }
 
 // test it! https://api.mercadolibre.com/sites/MLB/search?q=computador
 export const searchProducts = (term) => async (dispatch) => {
+  dispatch(searchLoading(true))
   const response = await fetch(
     `${baseUrl}sites/MLB/search?q=${term || 'games ps5'}`,
   )
   const data = await response.json()
-  dispatch(saveSearchProducts(data.results))
+  await dispatch(saveSearchProducts(data.results))
+  dispatch(searchLoading(false))
 }
 
 // test it! https://api.mercadolibre.com/sites/MLA/search?category=MLA5726
 export const getCategoryProducts = (categoryId) => async (dispatch) => {
+  dispatch(searchLoading(true))
   const response = await fetch(
     `${baseUrl}/sites/MLB/search?category=${categoryId}`,
   )
   const data = await response.json()
-  dispatch(saveSearchProducts(data.results))
+  await dispatch(saveSearchProducts(data.results))
+  dispatch(searchLoading(false))
 }
 
 // test it! https://api.mercadolibre.com/questions/search?item_id=MLB3223071375
