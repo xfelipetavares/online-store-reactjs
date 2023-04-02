@@ -37,24 +37,23 @@ const ProductCard = ({
   return (
     <div className={styles.card}>
       <div className={styles.boxImage}>
-        {freeShipping && (
-          <div className={styles.free_shipping}>
-            {/* <p>Frete Grátis</p> */}
-            <img src={freeShippingIcon} alt="" />
-          </div>
-        )}
         <img src={urlImage} alt={title} className={styles.image} />
       </div>
       <div className={styles.box}>
         <p className={styles.title}>{title}</p>
         <p className={styles.description}>{description}</p>
-        <div>
+        <div className={styles.box2}>
+          {freeShipping && (
+            <div className={styles.free_shipping}>
+              <p>Frete Grátis</p>
+              <img src={freeShippingIcon} alt="" />
+            </div>
+          )}
           <p className={styles.price}>
             {Number(price).toFixed(2)}
             <p className={styles.coin}>R$</p>
           </p>
         </div>
-        {/* <p>{id}</p> */}
         <button className={styles.button} type="button">
           Adicionar ao carrinho
         </button>
