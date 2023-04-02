@@ -6,7 +6,7 @@ import lupa from '../../assets/lupa.svg'
 import cart from '../../assets/cart.svg'
 
 import styles from './styles.module.scss'
-import { searchProducts } from '../../helpers/mercado_livre_api'
+import { searchProducts } from '../../services/mercado_livre_api'
 import { useDispatch, useSelector } from 'react-redux'
 import { saveTerm } from '../../redux/actions/api'
 

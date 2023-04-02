@@ -1,6 +1,10 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { getCategories } from '../../helpers/mercado_livre_api'
+import {
+  getCategories,
+  getCategoryProducts,
+} from '../../services/mercado_livre_api'
+import { saveTerm } from '../../redux/actions/api'
 
 import styles from './styles.module.scss'
 
@@ -9,7 +13,7 @@ const Sidebar = () => {
 
   useEffect(() => {
     dispatch(getCategories())
-  })
+  }, [dispatch])
 
   const categories = useSelector((state) => state.api.categories)
 
@@ -18,7 +22,15 @@ const Sidebar = () => {
       <h3 className={styles.h3}>Categories</h3>
       {categories.map(({ id, name }) => (
         <ul key={id}>
-          <button className={styles.category}>{name}</button>
+          <button
+            className={styles.category}
+            onClick={() => {
+              dispatch(getCategoryProducts(id))
+              dispatch(saveTerm(name))
+            }}
+          >
+            {name}
+          </button>
         </ul>
       ))}
     </div>

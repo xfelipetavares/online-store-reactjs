@@ -36,15 +36,22 @@ export const getDescription = (productId) => async (dispatch) => {
 }
 
 // test it! https://api.mercadolibre.com/sites/MLB/search?q=computador
-export const searchProducts =
-  (term = '$QUERY', categoryId = '$CATEGORY_ID') =>
-  async (dispatch) => {
-    const response = await fetch(
-      `${baseUrl}sites/MLB/search?q=${term}?category=${categoryId}`,
-    )
-    const data = await response.json()
-    dispatch(saveSearchProducts(data))
-  }
+export const searchProducts = (term) => async (dispatch) => {
+  const response = await fetch(
+    `${baseUrl}sites/MLB/search?q=${term || 'games ps5'}`,
+  )
+  const data = await response.json()
+  dispatch(saveSearchProducts(data.results))
+}
+
+// test it! https://api.mercadolibre.com/sites/MLA/search?category=MLA5726
+export const getCategoryProducts = (categoryId) => async (dispatch) => {
+  const response = await fetch(
+    `${baseUrl}/sites/MLB/search?category=${categoryId}`,
+  )
+  const data = await response.json()
+  dispatch(saveSearchProducts(data.results))
+}
 
 // test it! https://api.mercadolibre.com/questions/search?item_id=MLB3223071375
 export const getQuestions = (productId) => async (dispatch) => {
