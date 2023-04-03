@@ -46,9 +46,7 @@ const Header = () => {
       </form>
       <NavLink className={styles.cart} to="/cart">
         <img src={cart} alt="" />
-        <div className={styles.total}>
-          <p>{total}</p>
-        </div>
+        <p className={styles.total}>{total}</p>
       </NavLink>
     </header>
   )
