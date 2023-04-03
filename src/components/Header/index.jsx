@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 
-import logo from '../../assets/logo.svg'
+import logo2 from '../../assets/logo2.svg'
 import lupa from '../../assets/lupa.svg'
 import cart from '../../assets/cart.svg'
 
 import styles from './styles.module.scss'
-import { searchProducts } from '../../helpers/mercado_livre_api'
+import { searchProducts } from '../../services/mercado_livre_api'
 import { useDispatch, useSelector } from 'react-redux'
 import { saveTerm } from '../../redux/actions/api'
 
@@ -20,7 +20,7 @@ const Header = () => {
     <header className={styles.header}>
       <div className={styles.logo}>
         <div className={styles.bag}>
-          <img src={logo} alt="" className={styles.img} />
+          <img src={logo2} alt="" className={styles.img} />
         </div>
         <h1 className={styles.h1}> online store </h1>
       </div>

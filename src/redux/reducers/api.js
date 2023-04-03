@@ -31,7 +31,7 @@ export const api = (state = INITIAL_STATE, { type, payload }) => {
     case SAVE_DESCRIPTION:
       return { ...state, product: { ...state.product, description: payload } }
     case SAVE_SEARCH_PRODUCTS:
-      return { ...state, search: payload.results }
+      return { ...state, search: payload }
     case SAVE_QUESTIONS:
       return { ...state, product: { ...state.product, questions: payload } }
     case SAVE_TERM:
