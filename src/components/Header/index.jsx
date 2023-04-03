@@ -38,7 +38,7 @@ const Header = () => {
           onClick={(e) => {
             e.preventDefault()
             dispatch(searchProducts(term))
-            dispatch(saveTerm(term))
+            dispatch(saveTerm(`Mostrando resultados para: ${term}`))
           }}
         >
           <img className={styles.lupa} src={lupa} alt="" />
@@ -46,9 +46,7 @@ const Header = () => {
       </form>
       <NavLink className={styles.cart} to="/cart">
         <img src={cart} alt="" />
-        <div className={styles.total}>
-          <p>{total}</p>
-        </div>
+        <p className={styles.total}>{total}</p>
       </NavLink>
     </header>
   )
