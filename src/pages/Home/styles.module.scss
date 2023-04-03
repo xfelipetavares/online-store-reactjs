@@ -6,12 +6,16 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
+  // justify-content: center;
   position: relative;
 
   h2 {
     margin-top: 1rem;
     margin-bottom: 1rem;
     text-align: center;
+    color: rgb(56, 56, 56);
+    font: 500 1.8rem 'Poppins';
+    text-transform: capitalize;
   }
 }
 

@@ -38,7 +38,7 @@ const Header = () => {
           onClick={(e) => {
             e.preventDefault()
             dispatch(searchProducts(term))
-            dispatch(saveTerm(term))
+            dispatch(saveTerm(`Mostrando resultados para: ${term}`))
           }}
         >
           <img className={styles.lupa} src={lupa} alt="" />
