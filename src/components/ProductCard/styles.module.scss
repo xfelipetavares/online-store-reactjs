@@ -23,15 +23,11 @@
       object-fit: contain;
       border-radius: 10px;
     }
-    .image:hover {
-      width: 17rem;
-      height: 19.5rem;
-      background: white;
-      border-radius: 10px;
-      transform: scale(120%);
-      transition: transform 300ms;
-      cursor: pointer;
-    }
+  }
+  .boxImage:hover {
+    transition: transform 300ms;
+    transform: scale(124%);
+    cursor: zoom-in;
   }
 
   .box {
@@ -81,7 +77,7 @@
         color: var(--additional-color-1);
         align-items: baseline;
         gap: 0.6rem;
-        
+
         img {
           font-size: 0.9rem;
           width: 3.2rem;
