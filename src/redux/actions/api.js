@@ -4,6 +4,7 @@ export const SAVE_PRODUCT_IMGS = 'SAVE_PRODUCT_IMGS'
 export const SAVE_DESCRIPTION = 'SAVE_DESCRIPTION'
 export const SAVE_SEARCH_PRODUCTS = 'SAVE_SEARCH_PRODUCTS'
 export const SAVE_QUESTIONS = 'SAVE_QUESTIONS'
+export const SAVE_TERM = 'SAVE_TERM'
 
 export const saveCategories = (payload) => ({
   type: SAVE_CATEGORIES,
@@ -32,5 +33,10 @@ export const saveSearchProducts = (payload) => ({
 
 export const saveQuestions = (payload) => ({
   type: SAVE_QUESTIONS,
+  payload,
+})
+
+export const saveTerm = (payload) => ({
+  type: SAVE_TERM,
   payload,
 })

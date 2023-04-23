@@ -1,18 +1,36 @@
 import React, { useEffect } from 'react'
-import { useDispatch } from 'react-redux'
-import { getCategories, getProduct } from '../../helpers/mercado_livre_api'
-
-// import { Container } from './styles';
+import { useDispatch, useSelector } from 'react-redux'
+import Loading from '../../components/Loading'
+import ProductCard from '../../components/ProductCard'
+import Title from '../../components/Title'
+import { searchProducts } from '../../services/mercado_livre_api'
+import styles from './styles.module.scss'
 
 const Home = () => {
   const dispatch = useDispatch()
+  const products = useSelector((store) => store.api.search)
+  const loading = useSelector((store) => store.loadings.searchLoading)
 
   useEffect(() => {
-    dispatch(getCategories())
-    dispatch(getProduct('MLB3223071375'))
-  })
+    dispatch(searchProducts())
+  }, [dispatch])
 
-  return <h1>oi</h1>
+  return (
+    <main>
+      <h2>
+        <Title />
+      </h2>
+      {loading ? (
+        <Loading />
+      ) : (
+        <div className={styles.products}>
+          {products.map((product) => (
+            <ProductCard key={product.id} product={product} />
+          ))}
+        </div>
+      )}
+    </main>
+  )
 }
 
 export default Home
