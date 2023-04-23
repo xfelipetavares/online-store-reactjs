@@ -1,6 +1,5 @@
 .sidebar {
-  // background: var(--yellow-400);
-  background: #333;
+  background: var(--primary-color-500);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -16,18 +15,15 @@
   padding-top: calc( 1rem + var(--header-height));
 
   .h3 {
-    // color: var(--blue-500);
-    color: white;
+    color: var(--secondary-color);
   }
   
   .category {
-    // background: var(--white);
-    // color: var(--blue-500);
     border: none;
     display: flex;
     align-items: center;
-    border-radius: 7px;
-    width: 20rem;
+    border-radius: 5px;
+    width: 22.5rem;
     height: 3.4rem;
     padding: 0.8rem 1.3rem;
     font: 300 1.5rem 'Roboto';
@@ -38,7 +34,7 @@
   }
   .category:hover {
     cursor: pointer;
-    background: #4a4a4a;
+    background: var(--primary-color-400);
   }
 }
 
