@@ -22,7 +22,7 @@ const Sidebar = () => {
       <h3 className={styles.h3}>Categories</h3>
       {categories.map(({ id, name }) => (
         <ul key={id}>
-          <button
+          <li
             className={styles.category}
             onClick={() => {
               dispatch(getCategoryProducts(id))
@@ -30,7 +30,7 @@ const Sidebar = () => {
             }}
           >
             {name}
-          </button>
+          </li>
         </ul>
       ))}
     </div>

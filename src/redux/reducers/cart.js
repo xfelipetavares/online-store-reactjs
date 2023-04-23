@@ -1,7 +1,7 @@
 import { TOTAL_ITEMS } from '../actions/cart'
 
 const INITIAL_STATE = {
-  total: 0,
+  total: 20,
 }
 
 export const cart = (state = INITIAL_STATE, { type, payload }) => {
