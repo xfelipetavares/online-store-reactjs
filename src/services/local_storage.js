@@ -67,7 +67,7 @@ const initial = [
     quantity: 1,
   },
   {
-    id: 'oioioio',
+    id: 'MLB3223071376',
     site_id: 'MLB',
     title: ' Moto E22 Dual Sim 32 Gb Branco 2 Gb Ram',
     subtitle: null,
@@ -136,28 +136,26 @@ export function getItemsLocalStorage(name) {
 }
 
 export function addItemLocalStorage(name, product) {
-  const temp = getItemsLocalStorage(CART)
-  console.log('OIOIOIOIOI')
-  const newProd = { ...product, quantity: 1 }
-  localStorage.setItem(CART, JSON.stringify([...temp, newProd]))
-  dispatch(totalItems())
+  const temp = getItemsLocalStorage(name)
+  const found = temp.find((item) => item.id === product.id)
+  if (found) {
+    updateQuantity(name, found, found.quantity + 1)
+  } else {
+    const newProd = { ...product, quantity: 1 }
+    localStorage.setItem(name, JSON.stringify([...temp, newProd]))
+  }
 }
 
 export function removeItemLocalStorage(name, product) {
-  console.log('oi')
-  const temp = getItemsLocalStorage(CART) || []
-  console.log('temp', temp)
+  const temp = getItemsLocalStorage(name) || []
   const result = temp.filter((p) => p.id !== product.id)
-  localStorage.setItem(CART, JSON.stringify(result))
+  localStorage.setItem(name, JSON.stringify(result))
   dispatch(totalItems())
 }
 
-export function updateQuantity(name, product, quantity) {
-  console.log('q', quantity)
-  const temp = getItemsLocalStorage(CART).find((prod) => prod.id === product.id)
-  removeItemLocalStorage(name, product)
-  const newProduct = { ...temp, quantity }
-  console.log('np', newProduct)
-  addItemLocalStorage(name, newProduct)
-  dispatch(totalItems())
+export function updateQuantity(name, product, q) {
+  const temp = getItemsLocalStorage(name)
+  const arr = temp.filter((prod) => prod.id !== product.id)
+  const newProduct = { ...product, quantity: q }
+  localStorage.setItem(name, JSON.stringify([...arr, newProduct]))
 }

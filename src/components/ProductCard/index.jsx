@@ -6,6 +6,8 @@ import {
 } from '../../services/mercado_livre_api'
 import styles from './styles.module.scss'
 import freeShippingIcon from '../../assets/freeShippingIcon.svg'
+import { CART, addItemLocalStorage } from '../../services/local_storage'
+import { totalItems } from '../../redux/actions/cart'
 
 const ProductCard = ({
   product: {
@@ -15,6 +17,7 @@ const ProductCard = ({
     shipping: { free_shipping: freeShipping },
     thumbnail_id: thumb,
   },
+  p,
 }) => {
   const [urlImage, setUrlImage] = useState([])
   const [description, setDescription] = useState('')
@@ -54,7 +57,14 @@ const ProductCard = ({
             <p className={styles.coin}>R$</p>
           </div>
         </div>
-        <button className={styles.button} type="button">
+        <button
+          className={styles.button}
+          type="button"
+          onClick={() => {
+            addItemLocalStorage(CART, p)
+            dispatch(totalItems())
+          }}
+        >
           Adicionar ao carrinho
           <hr />
           <svg
