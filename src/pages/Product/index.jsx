@@ -2,8 +2,8 @@ import React from 'react'
 
 // import { Container } from './styles';
 
-function Product() {
-  return <div />
+const Product = () => {
+  return <div>oi</div>
 }
 
 export default Product
