@@ -1,13 +1,14 @@
+import { getItemsLocalStorage } from '../../services/local_storage'
 import { TOTAL_ITEMS } from '../actions/cart'
 
 const INITIAL_STATE = {
-  total: 20,
+  total: getItemsLocalStorage('cart').length,
 }
 
-export const cart = (state = INITIAL_STATE, { type, payload }) => {
+export const cart = (state = INITIAL_STATE, { type }) => {
   switch (type) {
     case TOTAL_ITEMS:
-      return { ...state, total: payload }
+      return { ...state, total: getItemsLocalStorage('cart').length }
     default:
       return state
   }
