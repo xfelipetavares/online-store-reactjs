@@ -1,9 +1,15 @@
 import { useDispatch } from 'react-redux'
 import { totalItems } from '../redux/actions/cart'
+export const CART = 'cart'
 
 const dispatch = useDispatch
 
-localStorage.setItem('cart', JSON.stringify([]))
+// if you can, to better work on the application,
+// put the product objects here. that way, on the page’s loading, they always start with that
+const initial = []
+
+!localStorage.getItem(CART) &&
+  localStorage.setItem(CART, JSON.stringify(initial))
 
 export function getItemsLocalStorage(name) {
   const result = JSON.parse(localStorage.getItem(name))
