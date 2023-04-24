@@ -34,3 +34,11 @@ export function updateLocalStorage(name, product) {
   addItemLocalStorage(name, product)
   dispatch(totalItems())
 }
+
+export function updateQuantity(name, product, quantity) {
+  const temp = getItemsLocalStorage.find((prod) => prod.id === product.id)
+  const newProduct = { ...temp, quantity }
+  removeItemLocalStorage(name, product)
+  addItemLocalStorage(name, newProduct)
+  dispatch(totalItems())
+}
