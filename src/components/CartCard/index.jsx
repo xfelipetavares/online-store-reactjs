@@ -1,20 +1,31 @@
 import React, { useState } from 'react'
-import { CART, updateQuantity } from '../../services/local_storage'
-// import { CART, getItemsLocalStorage } from '../../services/local_storage'
+import {
+  CART,
+  removeItemLocalStorage,
+  updateQuantity,
+} from '../../services/local_storage'
 
 const CartCard = ({ item }) => {
   const [quantity, setQuantity] = useState(item.quantity)
 
   return (
     <div>
-      <button>X</button>
+      <button
+        type="button"
+        onClick={() => {
+          removeItemLocalStorage(CART, item)
+        }}
+      >
+        X
+      </button>
       <img src={item.thumbnail} alt={item.title} />
       <p>{item.title}</p>
       <button
         type="button"
         onClick={() => {
-          if (quantity <= item.available_quantity && quantity > 1) {
+          if (quantity > 1) {
             setQuantity(quantity - 1)
+            updateQuantity(CART, item, quantity - 1)
           }
         }}
       >
