@@ -13,7 +13,6 @@ const CartCard = ({ item }) => {
       <button
         type="button"
         onClick={() => {
-          // const obj = getItemsLocalStorage(CART).find((item) => item)
           if (quantity <= item.available_quantity && quantity > 1) {
             setQuantity(quantity - 1)
           }

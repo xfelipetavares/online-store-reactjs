@@ -9,8 +9,10 @@ const INITIAL_STATE = {
 export const cart = (state = INITIAL_STATE, { type }) => {
   switch (type) {
     case TOTAL_ITEMS:
-      console.log('oi')
-      return { ...state, total: getItemsLocalStorage(CART).length }
+      return {
+        total: getItemsLocalStorage(CART).length,
+        productsFromLocalStorage: getItemsLocalStorage(CART),
+      }
     default:
       return state
   }
