@@ -13,11 +13,6 @@
   --secondary-color: #e47c03;
   --additional-color-1: #00d04a;
   --white: #ffffff;
-
-  *::-webkit-scrollbar {
-    width: 0;
-  }
-  
 }
 
 * {
@@ -69,4 +64,16 @@ body {
   a:visited {
     color: inherit;
   }
+}
+
+*::-webkit-scrollbar {
+  width: .7rem;
+  height: .7rem;
+  background: rgb(59, 59, 59);
+  border-radius: 10px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: rgb(164, 164, 164);
+  border-radius: 10px;
 }
