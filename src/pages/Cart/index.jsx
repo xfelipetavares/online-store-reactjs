@@ -2,13 +2,13 @@ import React from 'react'
 import CartCard from '../../components/CartCard'
 import { useSelector } from 'react-redux'
 
-// import { Container } from './styles';
+import styles from './styles.module.scss'
 
 const Cart = () => {
   const items = useSelector((store) => store.cart.productsFromLocalStorage)
 
   return (
-    <div>
+    <div className={styles.cartPage}>
       {items.map((item) => (
         <CartCard key={item.id} item={item} />
       ))}

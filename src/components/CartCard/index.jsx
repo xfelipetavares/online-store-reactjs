@@ -6,13 +6,14 @@ import {
 } from '../../services/local_storage'
 import { useDispatch } from 'react-redux'
 import { totalItems } from '../../redux/actions/cart'
+import styles from './styles.module.scss'
 
 const CartCard = ({ item }) => {
   const dispatch = useDispatch()
   const [quantity, setQuantity] = useState(item.quantity)
 
   return (
-    <div>
+    <div className={styles.card}>
       <button
         type="button"
         onClick={() => {
