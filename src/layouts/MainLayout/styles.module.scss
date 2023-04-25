@@ -1,13 +1,14 @@
 .layout {
   height: 100vh;
   overflow-y: hidden;
-
+  
   .main {
     display: flex;
 
     .sidebar {
+      display: flex;
       overflow-y: scroll;
-      width: var(--sidebar-width);
+      width: 30rem;
       height: calc(100vh - var(--header-height));
     }
     
@@ -16,5 +17,11 @@
       width: 100%;
       height: calc(100vh - var(--header-height));
     }
+  }
+}
+
+@media screen and (max-width: 830px) {
+  .sidebar {
+    display: none !important;
   }
 }

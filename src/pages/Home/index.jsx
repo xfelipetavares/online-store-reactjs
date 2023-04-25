@@ -16,7 +16,7 @@ const Home = () => {
   }, [dispatch])
 
   return (
-    <main>
+    <div className={styles.main}>
       <h2>
         <Title />
       </h2>
@@ -29,7 +29,7 @@ const Home = () => {
           ))}
         </div>
       )}
-    </main>
+    </div>
   )
 }
 
