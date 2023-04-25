@@ -1,8 +1,4 @@
-import { useDispatch } from 'react-redux'
-import { totalItems } from '../redux/actions/cart'
 export const CART = 'cart'
-
-const dispatch = useDispatch
 
 // if you can, to better work on the application,
 // put the product objects here. that way, on the page’s loading, they always start with that
@@ -32,7 +28,6 @@ export function removeItemLocalStorage(name, product) {
   const temp = getItemsLocalStorage(name) || []
   const result = temp.filter((p) => p.id !== product.id)
   localStorage.setItem(name, JSON.stringify(result))
-  dispatch(totalItems())
 }
 
 export function updateQuantity(name, product, q) {

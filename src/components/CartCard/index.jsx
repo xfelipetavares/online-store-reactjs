@@ -4,8 +4,11 @@ import {
   removeItemLocalStorage,
   updateQuantity,
 } from '../../services/local_storage'
+import { useDispatch } from 'react-redux'
+import { totalItems } from '../../redux/actions/cart'
 
 const CartCard = ({ item }) => {
+  const dispatch = useDispatch()
   const [quantity, setQuantity] = useState(item.quantity)
 
   return (
@@ -14,6 +17,7 @@ const CartCard = ({ item }) => {
         type="button"
         onClick={() => {
           removeItemLocalStorage(CART, item)
+          dispatch(totalItems())
         }}
       >
         X
