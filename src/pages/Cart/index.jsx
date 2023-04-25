@@ -9,9 +9,17 @@ const Cart = () => {
 
   return (
     <div className={styles.cartPage}>
-      {items.map((item) => (
-        <CartCard key={item.id} item={item} />
-      ))}
+      <h2>Carrinho</h2>
+      <div className={styles.main}>
+        <div className={styles.left}>
+          <ul>
+            {items.map((item) => (
+              <CartCard key={item.id} item={item} />
+            ))}
+          </ul>
+        </div>
+        <div className={styles.right}>oi</div>
+      </div>
     </div>
   )
 }

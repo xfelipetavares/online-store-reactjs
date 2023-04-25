@@ -1,7 +1,24 @@
 .card {
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  width: 111rem;
+  width: clamp(5rem, 65vw, 110rem);
   height: 8rem;
   border: solid red 1px;
+
+  .img {
+    width: 7rem;
+  }
+
+  .title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 13.5rem;
+  }
+
+  .icon {
+    width: 9.84rem;
+    height: 2.39rem;
+  }
 }
