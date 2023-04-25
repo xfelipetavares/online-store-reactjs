@@ -18,12 +18,12 @@ const Header = () => {
 
   return (
     <header className={styles.header}>
-      <div className={styles.logo}>
+      <NavLink to={'/'} className={styles.logo}>
         <div className={styles.bag}>
           <img src={logo2} alt="" className={styles.img} />
         </div>
         <h1 className={styles.h1}> online store </h1>
-      </div>
+      </NavLink>
       <form className={styles.search}>
         <input
           className={styles.input}
