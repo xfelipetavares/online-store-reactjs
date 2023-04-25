@@ -8,6 +8,7 @@ import {
   getProductsImage,
   getQuestions,
 } from '../../services/mercado_livre_api'
+import ButtonAdd2Cart from '../../components/ButtonAdd2Cart'
 
 const Product = () => {
   const { productId } = useParams()
@@ -30,6 +31,7 @@ const Product = () => {
     images,
     questions,
   } = useSelector((store) => store.api.product)
+  const p = useSelector((store) => store.api.product.info)
 
   useEffect(() => {
     dispatch(getProduct(productId))
@@ -41,15 +43,15 @@ const Product = () => {
   return (
     <div className={styles.container}>
       <div className={styles.topProductBox}>
-        <div className={styles.itemImages}>
-          <ul>
+        <div className={styles.topProdLeft}>
+          <div className={styles.imgList}>
             {pictures?.map(({ url, id }) => (
               <img key={id} width={100} src={url} alt={title} />
             ))}
-          </ul>
-          <img src={images} style={{ maxWidth: '200px' }} alt={title} />
+          </div>
+          <img src={images} className={styles.mainProdImg} alt={title} />
         </div>
-        <div className={styles.itemTitle}>
+        <div className={styles.topProdRight}>
           <p>Produto {condition === 'new' ? 'novo' : 'usado'}</p>
           <p>{soldQuantity} vendidos</p>
           <p>{shipping?.free_shipping === true ? 'frete gratis' : ''}</p>
@@ -59,10 +61,9 @@ const Product = () => {
               De: <s>R${originalPrice?.toFixed(2)}</s>
             </p>
           )}
-
           <p>R${price?.toFixed(2)}</p>
           <p>em até 12x R${(price / 12)?.toFixed(2)}</p>
-          <button type="button">Adicionar ao carrinho</button>
+          <ButtonAdd2Cart p={p} />
         </div>
       </div>
     </div>
