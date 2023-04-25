@@ -1,0 +1,16 @@
+.layout {
+  height: 100vh;
+  overflow-y: hidden;
+
+  .sidebar {
+    display: flex;
+
+    .main {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: calc(100vw - var(--sidebar-width));
+      height: calc(100vh - var(--header-height));
+    }
+  }
+}
