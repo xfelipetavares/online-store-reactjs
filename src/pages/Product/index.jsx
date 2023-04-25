@@ -43,7 +43,7 @@ const Product = () => {
       <div className={styles.topProductBox}>
         <div className={styles.itemImages}>
           <ul>
-            {pictures.map(({ url, id }) => (
+            {pictures?.map(({ url, id }) => (
               <img key={id} width={100} src={url} alt={title} />
             ))}
           </ul>
