@@ -24,11 +24,11 @@
       border-radius: 10px;
     }
   }
-  .boxImage:hover {
-    transition: transform 300ms;
-    transform: scale(124%);
-    cursor: zoom-in;
-  }
+  // .boxImage:hover {
+  //   transition: transform 300ms;
+  //   transform: scale(124%);
+  //   cursor: zoom-in;
+  // }
 
   .box {
     width: 100%;
@@ -132,4 +132,9 @@
       // }
     }
   }
+}
+
+.card:hover {
+  transition: transform 300ms;
+  transform: scale(104%);
 }

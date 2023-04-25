@@ -8,6 +8,7 @@ import styles from './styles.module.scss'
 import freeShippingIcon from '../../assets/freeShippingIcon.svg'
 import { CART, addItemLocalStorage } from '../../services/local_storage'
 import { totalItems } from '../../redux/actions/cart'
+import { NavLink } from 'react-router-dom'
 
 const ProductCard = ({
   product: {
@@ -23,28 +24,27 @@ const ProductCard = ({
   const [description, setDescription] = useState('')
   const dispatch = useDispatch()
 
-  const getDesc = async () => {
+  const justGet = async () => {
     setDescription(await dispatch(getDescription(id)))
-  }
-
-  const getImg = async () => {
-    const id = await getProductsImage(thumb)
-    setUrlImage(id)
+    setUrlImage(await dispatch(getProductsImage(thumb)))
   }
 
   useEffect(() => {
-    getImg()
-    getDesc()
+    justGet()
   }, [])
 
   return (
     <div className={styles.card}>
-      <div className={styles.boxImage}>
+      <NavLink to={`/item/${id}`} className={styles.boxImage}>
         <img src={urlImage} alt={title} className={styles.image} />
-      </div>
+      </NavLink>
       <div className={styles.box}>
-        <p className={styles.title}>{title}</p>
-        <p className={styles.description}>{description}</p>
+        <p className={styles.title}>
+          <NavLink to={`/item/${id}`}>{title}</NavLink>
+        </p>
+        <p className={styles.description}>
+          <NavLink to={`/item/${id}`}>{description}</NavLink>
+        </p>
         <div className={styles.box2}>
           {freeShipping && (
             <div className={styles.free_shipping}>

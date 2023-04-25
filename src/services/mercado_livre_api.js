@@ -1,9 +1,11 @@
 import {
+  saveProductsImgs,
   saveCategories,
   saveDescription,
   saveProduct,
-  saveQuestions,
+  // saveQuestions,
   saveSearchProducts,
+  saveQuestions,
 } from '../redux/actions/api'
 import { searchLoading } from '../redux/actions/loadings'
 const baseUrl = 'https://api.mercadolibre.com/'
@@ -23,9 +25,10 @@ export const getProduct = (productId) => async (dispatch) => {
 }
 
 // test it! https://api.mercadolibre.com/pictures/838384-MLA53431280771_012023
-export const getProductsImage = async (productImageId) => {
+export const getProductsImage = (productImageId) => async (dispatch) => {
   const response = await fetch(`${baseUrl}pictures/${productImageId}`)
   const data = await response.json()
+  dispatch(saveProductsImgs(data.variations[0]?.url))
   return data.variations[0].url
 }
 
@@ -33,8 +36,8 @@ export const getProductsImage = async (productImageId) => {
 export const getDescription = (productId) => async (dispatch) => {
   const response = await fetch(`${baseUrl}items/${productId}/description`)
   const data = await response.json()
-  dispatch(saveDescription(data))
-  return data.plain_text
+  dispatch(saveDescription(data?.plain_text))
+  return data?.plain_text
 }
 
 // test it! https://api.mercadolibre.com/sites/MLB/search?q=computador
@@ -44,7 +47,7 @@ export const searchProducts = (term) => async (dispatch) => {
     `${baseUrl}sites/MLB/search?q=${term || 'games ps5'}`,
   )
   const data = await response.json()
-  await dispatch(saveSearchProducts(data.results))
+  await dispatch(saveSearchProducts(data?.results))
   dispatch(searchLoading(false))
 }
 
@@ -55,7 +58,7 @@ export const getCategoryProducts = (categoryId) => async (dispatch) => {
     `${baseUrl}/sites/MLB/search?category=${categoryId}`,
   )
   const data = await response.json()
-  await dispatch(saveSearchProducts(data.results))
+  await dispatch(saveSearchProducts(data?.results))
   dispatch(searchLoading(false))
 }
 
@@ -65,5 +68,6 @@ export const getQuestions = (productId) => async (dispatch) => {
     `${baseUrl}questions/search?item_id=${productId}`,
   )
   const data = await response.json()
-  dispatch(saveQuestions(data.questions))
+  dispatch(saveQuestions(data?.questions))
+  return data?.questions
 }

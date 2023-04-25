@@ -4,7 +4,6 @@ export const CART = 'cart'
 // put the product objects here. that way, on the page’s loading, they always start with that
 
 const initial = []
-
 !localStorage.getItem(CART) &&
   localStorage.setItem(CART, JSON.stringify(initial))
 

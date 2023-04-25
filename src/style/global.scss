@@ -61,10 +61,11 @@ body {
   }
 
   a {
+    color: inherit;
     text-decoration: none;
   }
 
   a:visited {
-    color: initial;
+    color: inherit;
   }
 }

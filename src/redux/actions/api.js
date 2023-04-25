@@ -22,7 +22,7 @@ export const saveProductsImgs = (payload) => ({
 })
 
 export const saveDescription = (payload) => ({
-  type: SAVE_PRODUCT_IMGS,
+  type: SAVE_DESCRIPTION,
   payload,
 })
 
