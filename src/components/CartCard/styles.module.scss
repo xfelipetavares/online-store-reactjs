@@ -3,22 +3,63 @@
   align-items: center;
   justify-content: space-between;
   width: clamp(5rem, 65vw, 110rem);
-  height: 8rem;
+  height: 13rem;
   border: solid red 1px;
+  
+  .product {
+    display: flex;
+    flex-direction: column;
+    position: relative;
 
-  .img {
-    width: 7rem;
+    .img {
+      width: 9rem;
+    }
+    
+    .title {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      width: 12rem;
+    }
+
+    .id {
+      font-size: .9rem;
+    }
+    
+    .deleteBtn {
+      display: flex;
+      position: absolute;
+      background: none;
+      border: none;
+      color: red;
+      right: -.3rem;
+      top: -.5rem;
+    }
+  }
+    
+.ogPrice {
+  width: 8rem;
+  border: solid blue 1px;
+}
+
+  .qty {
+    display: flex;
+    justify-content: space-between;
+    width: 8rem;
+    border: solid greenyellow 1px;
   }
 
-  .title {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    width: 13.5rem;
-  }
-
-  .icon {
+  .shipping {
     width: 9.84rem;
     height: 2.39rem;
+  }
+  .icon {
+    height: 2.39rem;
+    width: 9.84rem;
+  }
+
+  .price {
+    width: 9rem;
+    border: solid blue 1px;
   }
 }

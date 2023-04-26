@@ -17,48 +17,59 @@ const CartCard = ({ item }) => {
   return (
     <div>
       <li className={styles.card}>
-        <button
-          type="button"
-          onClick={() => {
-            removeItemLocalStorage(CART, item)
-            dispatch(totalItems())
-          }}
-        >
-          X
-        </button>
-        <img className={styles.img} src={item.thumbnail} alt={item.title} />
-        <p className={styles.title}>{item.title}</p>
-        <button
-          className={styles.subBtn}
-          type="button"
-          onClick={() => {
-            if (quantity > 1) {
-              setQuantity(quantity - 1)
-              updateQuantity(CART, item, quantity - 1)
-            }
-          }}
-        >
-          -
-        </button>
-        <p className={styles.quantity}>{quantity}</p>
-        <button
-          className={styles.addBtn}
-          type="button"
-          onClick={() => {
-            if (item.quantity < item.available_quantity) {
-              setQuantity(quantity + 1)
-              updateQuantity(CART, item, quantity + 1)
-            }
-          }}
-        >
-          +
-        </button>
-        <p>
-          {item.shipping.free_shipping && (
-            <img className={styles.icon} src={icon} alt="" />
-          )}
+        <div className={styles.product}>
+          <img className={styles.img} src={item.thumbnail} alt={item.title} />
+          <p className={styles.title}>{item.title}</p>
+          <p className={styles.id}>{item.id}</p>
+          <button
+            className={styles.deleteBtn}
+            type="button"
+            onClick={() => {
+              removeItemLocalStorage(CART, item)
+              dispatch(totalItems())
+            }}
+          >
+            X
+          </button>
+        </div>
+        <p className={styles.ogPrice}>R${item.price.toFixed(2)}</p>
+        <div className={styles.qty}>
+          <button
+            className={styles.subBtn}
+            type="button"
+            onClick={() => {
+              if (quantity > 1) {
+                setQuantity(quantity - 1)
+                updateQuantity(CART, item, quantity - 1)
+              }
+            }}
+          >
+            -
+          </button>
+          <p className={styles.quantity}>{quantity}</p>
+          <button
+            className={styles.addBtn}
+            type="button"
+            onClick={() => {
+              if (item.quantity < item.available_quantity) {
+                setQuantity(quantity + 1)
+                updateQuantity(CART, item, quantity + 1)
+              }
+            }}
+          >
+            +
+          </button>
+        </div>
+        <div className={styles.shipping}>
+          <p>
+            {item.shipping.free_shipping && (
+              <img className={styles.icon} src={icon} alt="" />
+            )}
+          </p>
+        </div>
+        <p className={styles.price}>
+          R${Number(item.price * quantity).toFixed(2)}
         </p>
-        <p>R${Number(item.price) * Number(quantity)}</p>
       </li>
     </div>
   )

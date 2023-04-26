@@ -9,9 +9,9 @@ const Cart = () => {
 
   return (
     <div className={styles.cartPage}>
-      <h2>Carrinho</h2>
       <div className={styles.main}>
         <div className={styles.left}>
+          <h2 className={styles.h2}>Carrinho</h2>
           <ul>
             {items.map((item) => (
               <CartCard key={item.id} item={item} />
