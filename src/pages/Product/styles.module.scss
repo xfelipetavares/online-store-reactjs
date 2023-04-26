@@ -51,6 +51,7 @@
       .aboveTitleInfos {
         display: flex;
         gap: 1rem;
+        width: fit-content;
         font: 400 1.3rem 'Roboto';
         text-transform: capitalize;
 
@@ -122,11 +123,11 @@
 
         .imgList {
           flex-direction: row;
-          width: 100%;
-          justify-content: center;
+          width: min(48rem, 100%);
+          justify-content: start;
           overflow-x: scroll;
           overflow-y: auto;
-          padding: 1rem 0;
+          padding: 0.5rem 0;
 
           img {
             border-radius: 7px;
@@ -138,12 +139,23 @@
 
         .mainProdImg {
           max-width: min(48rem, 100%);
+          height: 48vw;
         }
       }
 
       .topProdRight {
         margin-top: 0;
         width: 100%;
+
+        button {
+          // font-size: clamp(0.8rem, 90vw, 1.7rem) !important;
+          font-size: clamp(1.3rem, 4vw, 1.7rem) !important;
+          
+          svg {
+            width: clamp(10%, 1vw, 80%) !important;
+            
+          }
+        }
       }
     }
   }
