@@ -9,6 +9,7 @@ import {
   getQuestions,
 } from '../../services/mercado_livre_api'
 import ButtonAdd2Cart from '../../components/ButtonAdd2Cart'
+import QuestionsCard from '../../components/QuestionsCard'
 
 const Product = () => {
   const { productId } = useParams()
@@ -47,7 +48,7 @@ const Product = () => {
 
   return (
     <div className={styles.container}>
-      <div className={styles.topProductBox}>
+      <div className={`${styles.topProductBox} ${styles.wrapper}`}>
         <div className={styles.topProdLeft}>
           <div className={styles.imgList}>
             {pictures?.map(({ url, id }) => (
@@ -83,6 +84,23 @@ const Product = () => {
             em até 12x R${(price / 12)?.toFixed(2)}
           </p>
           <ButtonAdd2Cart p={p} />
+        </div>
+      </div>
+      <div className={`${styles.mainProductBox} ${styles.wrapper}`}>
+        {/* <hr className={styles.divisor1} /> */}
+        <div className={styles.descriptionBox}>
+          <h3 className={styles.descriptionTitle}>Descrição</h3>
+          <p className={styles.description}>{description}</p>
+        </div>
+        <div className={styles.questionsBox}>
+          <h3 className={styles.descriptionTitle}>Perguntas</h3>
+          <div className={styles.questions}>
+            {questions?.map((question) => (
+              <div className={styles.box} key={question.id}>
+                <QuestionsCard q={question} />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>

@@ -7,13 +7,12 @@
 
     .sidebar {
       display: flex;
-      overflow-y: scroll;
-      width: 30rem;
+      width: var(--sidebar-width);
       height: calc(100vh - var(--header-height));
     }
     
     .routes {
-      overflow-y: scroll;
+      overflow-y: auto;
       width: 100%;
       height: calc(100vh - var(--header-height));
     }
