@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from './styles.module.scss'
 import { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
@@ -8,6 +8,7 @@ import {
   getProductsImage,
   getQuestions,
 } from '../../services/mercado_livre_api'
+import ButtonAdd2Cart from '../../components/ButtonAdd2Cart'
 
 const Product = () => {
   const { productId } = useParams()
@@ -30,6 +31,8 @@ const Product = () => {
     images,
     questions,
   } = useSelector((store) => store.api.product)
+  const p = useSelector((store) => store.api.product.info)
+  const [img, setImg] = useState('')
 
   useEffect(() => {
     dispatch(getProduct(productId))
@@ -38,31 +41,48 @@ const Product = () => {
     dispatch(getQuestions(id))
   }, [id])
 
+  useEffect(() => {
+    setImg(images)
+  }, [images])
+
   return (
     <div className={styles.container}>
       <div className={styles.topProductBox}>
-        <div className={styles.itemImages}>
-          <ul>
+        <div className={styles.topProdLeft}>
+          <div className={styles.imgList}>
             {pictures?.map(({ url, id }) => (
-              <img key={id} width={100} src={url} alt={title} />
+              <img
+                key={id}
+                onClick={() => setImg(url)}
+                width={100}
+                src={url}
+                alt={title}
+              />
             ))}
-          </ul>
-          <img src={images} style={{ maxWidth: '200px' }} alt={title} />
+          </div>
+          <img src={img} className={styles.mainProdImg} alt={title} />
         </div>
-        <div className={styles.itemTitle}>
-          <p>Produto {condition === 'new' ? 'novo' : 'usado'}</p>
-          <p>{soldQuantity} vendidos</p>
-          <p>{shipping?.free_shipping === true ? 'frete gratis' : ''}</p>
-          <p>{title}</p>
+        <div className={styles.topProdRight}>
+          <div className={styles.aboveTitleInfos}>
+            <p className={styles.shipping}>
+              {shipping?.free_shipping === true ? 'frete grátis' : ''}
+            </p>
+            <p className={styles.condition}>
+              Produto {condition === 'new' ? 'novo' : 'usado'}
+            </p>
+            <p className={styles.quantity}>{soldQuantity} vendidos</p>
+          </div>
+          <h2 className={styles.title}>{title}</h2>
           {originalPrice && (
-            <p>
-              De: <s>R${originalPrice?.toFixed(2)}</s>
+            <p className={styles.originalPrice}>
+              De: <s>R$ {originalPrice?.toFixed(2)}</s>
             </p>
           )}
-
-          <p>R${price?.toFixed(2)}</p>
-          <p>em até 12x R${(price / 12)?.toFixed(2)}</p>
-          <button type="button">Adicionar ao carrinho</button>
+          <h3 className={styles.price}>R$ {price?.toFixed(2)}</h3>
+          <p className={styles.installments}>
+            em até 12x R${(price / 12)?.toFixed(2)}
+          </p>
+          <ButtonAdd2Cart p={p} />
         </div>
       </div>
     </div>
