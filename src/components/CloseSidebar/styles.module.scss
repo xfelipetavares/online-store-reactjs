@@ -1,0 +1,14 @@
+.button {
+  background: var(--secondary-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  padding: 0.5rem;
+  border-radius: 100%;
+  
+  svg path {
+    stroke: white;
+  }
+}

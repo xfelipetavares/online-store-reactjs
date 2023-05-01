@@ -4,9 +4,10 @@ import {
   getCategories,
   getCategoryProducts,
 } from '../../services/mercado_livre_api'
-import { saveTerm } from '../../redux/actions/api'
+import { saveTerm, toggleSideBar } from '../../redux/actions/api'
 
 import styles from './styles.module.scss'
+import CloseSideBar from '../CloseSidebar'
 
 const Sidebar = () => {
   const dispatch = useDispatch()
@@ -19,20 +20,26 @@ const Sidebar = () => {
 
   return (
     <div className={styles.sidebar}>
+      <div className={styles.toggleSideBar}>
+        <CloseSideBar />
+      </div>
       <h3 className={styles.h3}>Categories</h3>
-      {categories.map(({ id, name }) => (
-        <ul key={id}>
-          <li
-            className={styles.category}
-            onClick={() => {
-              dispatch(getCategoryProducts(id))
-              dispatch(saveTerm(name))
-            }}
-          >
-            {name}
-          </li>
-        </ul>
-      ))}
+      <div className={styles.ulCategories}>
+        {categories.map(({ id, name }) => (
+          <ul key={id}>
+            <li
+              className={styles.category}
+              onClick={() => {
+                dispatch(getCategoryProducts(id))
+                dispatch(saveTerm(name))
+                dispatch(toggleSideBar())
+              }}
+            >
+              {name}
+            </li>
+          </ul>
+        ))}
+      </div>
     </div>
   )
 }

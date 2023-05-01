@@ -14,8 +14,8 @@ const INITIAL_STATE = {
   search: [],
   product: {
     info: {},
-    description: {},
-    images: {},
+    description: [],
+    images: [],
     questions: [],
   },
 }

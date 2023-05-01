@@ -16,7 +16,7 @@ const Home = () => {
   }, [dispatch])
 
   return (
-    <main>
+    <div className={styles.main}>
       <h2>
         <Title />
       </h2>
@@ -25,11 +25,11 @@ const Home = () => {
       ) : (
         <div className={styles.products}>
           {products.map((product) => (
-            <ProductCard key={product.id} product={product} />
+            <ProductCard key={product.id} product={product} p={product} />
           ))}
         </div>
       )}
-    </main>
+    </div>
   )
 }
 

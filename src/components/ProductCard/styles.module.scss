@@ -24,11 +24,11 @@
       border-radius: 10px;
     }
   }
-  .boxImage:hover {
-    transition: transform 300ms;
-    transform: scale(124%);
-    cursor: zoom-in;
-  }
+  // .boxImage:hover {
+  //   transition: transform 300ms;
+  //   transform: scale(124%);
+  //   cursor: zoom-in;
+  // }
 
   .box {
     width: 100%;
@@ -104,32 +104,10 @@
         }
       }
     }
-
-    .button {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: var(--secondary-color);
-      width: 100%;
-      height: 3rem;
-      border-radius: 7px;
-      border: none;
-      color: white;
-      margin-top: 1rem;
-      font-weight: 500;
-      font-size: 1.4rem;
-      line-height: 1.8rem;
-      gap: 1rem;
-
-      hr {
-        height: 80%;
-        border-radius: 10px;
-        border: 1px solid white;
-      }
-
-      // .svg path {
-      //   fill: black;
-      // }
-    }
   }
+}
+
+.card:hover {
+  transition: transform 300ms;
+  transform: scale(104%);
 }

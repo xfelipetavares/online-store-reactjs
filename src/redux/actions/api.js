@@ -5,6 +5,7 @@ export const SAVE_DESCRIPTION = 'SAVE_DESCRIPTION'
 export const SAVE_SEARCH_PRODUCTS = 'SAVE_SEARCH_PRODUCTS'
 export const SAVE_QUESTIONS = 'SAVE_QUESTIONS'
 export const SAVE_TERM = 'SAVE_TERM'
+export const TOGGLE_SIDE_BAR = 'TOGGLE_SIDE_BAR'
 
 export const saveCategories = (payload) => ({
   type: SAVE_CATEGORIES,
@@ -22,7 +23,7 @@ export const saveProductsImgs = (payload) => ({
 })
 
 export const saveDescription = (payload) => ({
-  type: SAVE_PRODUCT_IMGS,
+  type: SAVE_DESCRIPTION,
   payload,
 })
 
@@ -39,4 +40,8 @@ export const saveQuestions = (payload) => ({
 export const saveTerm = (payload) => ({
   type: SAVE_TERM,
   payload,
+})
+
+export const toggleSideBar = () => ({
+  type: TOGGLE_SIDE_BAR,
 })
