@@ -3,9 +3,12 @@ import CartCard from '../../components/CartCard'
 import { useSelector } from 'react-redux'
 
 import styles from './styles.module.scss'
+import { useNavigate } from 'react-router-dom'
 
 const Cart = () => {
   const items = useSelector((store) => store.cart.productsFromLocalStorage)
+
+  const navigate = useNavigate()
 
   return (
     <div className={styles.cartPage}>
@@ -40,7 +43,20 @@ const Cart = () => {
             </table>
           </div>
         </div>
-        <div className={styles.right}>oi</div>
+        <div className={styles.right}>
+          <p>
+            Valor total do carrinho: R$
+            {items
+              .reduce(
+                (acc, item) => acc + Number(item.price * item.quantity),
+                0,
+              )
+              .toFixed(2)}
+          </p>
+          <button type="button" onClick={() => navigate('/payment')}>
+            Avançar
+          </button>
+        </div>
       </div>
     </div>
   )

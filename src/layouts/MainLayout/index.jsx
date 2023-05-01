@@ -11,11 +11,12 @@ const MainLayout = () => {
     <div className={styles.layout}>
       <Header />
       <div className={styles.main}>
-        {!location?.pathname.includes('cart') && (
-          <div className={styles.sidebar}>
-            <Sidebar />
-          </div>
-        )}
+        {location?.pathname !== 'cart' ||
+          (location?.pathname !== 'payment' && (
+            <div className={styles.sidebar}>
+              <Sidebar />
+            </div>
+          ))}
         <div className={styles.routes}>
           <SrcRoutes />
         </div>
