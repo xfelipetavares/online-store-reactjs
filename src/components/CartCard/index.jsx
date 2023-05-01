@@ -9,18 +9,17 @@ import { totalItems } from '../../redux/actions/cart'
 
 import icon from '../../assets/freeShippingIcon.svg'
 import styles from './styles.module.scss'
+import { NavLink } from 'react-router-dom'
 
 const CartCard = ({ item }) => {
   const dispatch = useDispatch()
   const [quantity, setQuantity] = useState(item.quantity)
 
   return (
-    <div>
-      <li className={styles.card}>
-        <div className={styles.product}>
+    <>
+      <td className={styles.product}>
+        <div className={styles.productImg}>
           <img className={styles.img} src={item.thumbnail} alt={item.title} />
-          <p className={styles.title}>{item.title}</p>
-          <p className={styles.id}>{item.id}</p>
           <button
             className={styles.deleteBtn}
             type="button"
@@ -32,8 +31,13 @@ const CartCard = ({ item }) => {
             X
           </button>
         </div>
-        <p className={styles.ogPrice}>R${item.price.toFixed(2)}</p>
-        <div className={styles.qty}>
+        <NavLink to={`/item/${item.id}`}>
+          <p className={styles.title}>{item.title}</p>
+        </NavLink>
+      </td>
+      <td className={styles.ogPrice}>R${item.price.toFixed(2)}</td>
+      <td className={styles.qty}>
+        <div className={styles.addSubButtons}>
           <button
             className={styles.subBtn}
             type="button"
@@ -60,18 +64,16 @@ const CartCard = ({ item }) => {
             +
           </button>
         </div>
-        <div className={styles.shipping}>
-          <p>
-            {item.shipping.free_shipping && (
-              <img className={styles.icon} src={icon} alt="" />
-            )}
-          </p>
-        </div>
-        <p className={styles.price}>
-          R${Number(item.price * quantity).toFixed(2)}
-        </p>
-      </li>
-    </div>
+      </td>
+      <td>
+        {item.shipping.free_shipping && (
+          <img className={styles.icon} src={icon} alt="" />
+        )}
+      </td>
+      <td className={styles.price}>
+        R${Number(item.price * quantity).toFixed(2)}
+      </td>
+    </>
   )
 }
 

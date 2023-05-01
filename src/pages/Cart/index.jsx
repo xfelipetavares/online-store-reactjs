@@ -12,11 +12,33 @@ const Cart = () => {
       <div className={styles.main}>
         <div className={styles.left}>
           <h2 className={styles.h2}>Carrinho</h2>
-          <ul>
-            {items.map((item) => (
-              <CartCard key={item.id} item={item} />
-            ))}
-          </ul>
+          <div className={styles.tableTitles}>
+            <h5>Produto</h5>
+            <h5>Preço</h5>
+            <h5>Quant.</h5>
+            <h5>Frete</h5>
+            <h5>Total</h5>
+          </div>
+          <div className={styles.table}>
+            <table>
+              <thead>
+                <tr>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody className={styles.tbody}>
+                {items.map((item) => (
+                  <tr key={item.id} className={styles.card}>
+                    <CartCard item={item} />
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
         <div className={styles.right}>oi</div>
       </div>

@@ -1,65 +1,79 @@
-.card {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: clamp(5rem, 65vw, 110rem);
-  height: 13rem;
-  border: solid red 1px;
+.product {
+  // display: flex;
+  flex-direction: column;
   
-  .product {
-    display: flex;
-    flex-direction: column;
+  .productImg {
     position: relative;
+    width: fit-content;
+    height: fit-content;
+    margin-inline: auto;
 
     .img {
-      width: 9rem;
-    }
-    
-    .title {
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      width: 12rem;
+      width: min(9rem, 100%);
     }
 
-    .id {
-      font-size: .9rem;
-    }
-    
     .deleteBtn {
       display: flex;
       position: absolute;
       background: none;
       border: none;
       color: red;
-      right: -.3rem;
-      top: -.5rem;
+      font-weight: 700;
+      right: -.5rem;
+      top: -0.7rem;
     }
   }
-    
-.ogPrice {
-  width: 8rem;
-  border: solid blue 1px;
+
+
+  .title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: min(13rem, 100%);
+    margin-inline: auto;
+    font-size: clamp(1rem, 4vw, 1.6rem);
+  }
+
 }
 
-  .qty {
+.ogPrice {
+  width: min(9rem, 100%);
+  font-size: clamp(1rem, 2vw, 1.6rem);
+  // border: solid blue 1px;
+}
+
+.qty {
+
+  .addSubButtons {
     display: flex;
-    justify-content: space-between;
-    width: 8rem;
-    border: solid greenyellow 1px;
-  }
+    justify-content: center;
+    gap: 1rem;
 
-  .shipping {
-    width: 9.84rem;
-    height: 2.39rem;
-  }
-  .icon {
-    height: 2.39rem;
-    width: 9.84rem;
-  }
+    .addBtn {
+      background: none;
+      border: none;
+      color: var(--white);
+    }
 
-  .price {
-    width: 9rem;
-    border: solid blue 1px;
+    .quantity {
+      font-size: clamp(1rem, 4vw, 1.6rem);
+    }
+
+    .subBtn {
+      background: none;
+      border: none;
+      color: var(--white);
+    }
   }
+}
+
+.icon {
+  height: 2.39rem;
+  width: min(9.84rem, 10vw);
+}
+
+.price {
+  width: min(9rem, 100%);
+  font-size: clamp(1rem, 2vw, 1.6rem);
+  // border: solid blue 1px;
 }

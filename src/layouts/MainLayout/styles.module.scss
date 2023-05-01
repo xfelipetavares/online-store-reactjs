@@ -13,7 +13,7 @@
     }
     
     .routes {
-      overflow-y: scroll;
+      overflow-y: auto;
       width: 100%;
       height: calc(100vh - var(--header-height));
     }
