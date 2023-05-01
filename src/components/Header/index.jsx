@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useLocation } from 'react-router-dom'
 
 import logo2 from '../../assets/logo2.svg'
 import lupa from '../../assets/lupa.svg'
@@ -9,15 +9,21 @@ import styles from './styles.module.scss'
 import { searchProducts } from '../../services/mercado_livre_api'
 import { useDispatch, useSelector } from 'react-redux'
 import { saveTerm } from '../../redux/actions/api'
-
+import OpenSideBar from '../OpenSidebar'
 const Header = () => {
   const [term, setTerm] = useState('')
   const total = useSelector((state) => state.cart.total)
+  const { pathname } = useLocation()
 
   const dispatch = useDispatch()
 
   return (
     <header className={styles.header}>
+      {!pathname.includes('cart') && (
+        <div className={styles.sidebarToggleButton}>
+          <OpenSideBar />
+        </div>
+      )}
       <NavLink to={'/'} className={styles.logo}>
         <div className={styles.bag}>
           <img src={logo2} alt="" className={styles.img} />

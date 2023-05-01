@@ -2,14 +2,14 @@ import React, { useEffect, useState } from 'react'
 import styles from './styles.module.scss'
 import { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
+import ButtonAdd2Cart from '../../components/ButtonAdd2Cart'
+import QuestionsCard from '../../components/QuestionsCard'
 import {
   getDescription,
   getProduct,
   getProductsImage,
   getQuestions,
 } from '../../services/mercado_livre_api'
-import ButtonAdd2Cart from '../../components/ButtonAdd2Cart'
-import QuestionsCard from '../../components/QuestionsCard'
 
 const Product = () => {
   const { productId } = useParams()
@@ -20,9 +20,9 @@ const Product = () => {
       price,
       title,
       sold_quantity: soldQuantity,
-      warranty,
+      // warranty,
       pictures,
-      attributes,
+      // attributes,
       condition,
       original_price: originalPrice,
       shipping,
