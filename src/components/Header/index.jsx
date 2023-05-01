@@ -28,7 +28,8 @@ const Header = () => {
         to={'/'}
         onClick={() => {
           nav('/')
-          dispatch(searchProducts(term))
+          dispatch(searchProducts('games ps5'))
+          setTerm('')
           dispatch(saveTerm(''))
         }}
         className={styles.logo}
@@ -42,6 +43,7 @@ const Header = () => {
         <input
           className={styles.input}
           type="text"
+          value={term}
           placeholder="Search"
           onChange={({ target: { value } }) => {
             setTerm(value)
