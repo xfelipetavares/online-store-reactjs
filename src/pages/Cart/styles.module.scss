@@ -75,6 +75,9 @@
       align-items: center;
       flex-direction: column;
       background: var(--primary-color-400);
+      color: var(--white);
+      font-weight: 500;
+
 
       .submitButton {
         display: flex;
@@ -114,7 +117,8 @@
 
     .right {
       width: 100% !important;
-      height: 8rem !important;
+      height: 10rem !important;
+      padding: 1rem;
     }
   }
 }
