@@ -29,6 +29,10 @@ export function removeItemLocalStorage(name, product) {
   localStorage.setItem(name, JSON.stringify(result))
 }
 
+export function removeAllItemsFromCart() {
+  localStorage.setItem(CART, JSON.stringify([]))
+}
+
 export function updateQuantity(name, product, q) {
   const temp = getItemsLocalStorage(name)
   const arr = temp.filter((prod) => prod.id !== product.id)
