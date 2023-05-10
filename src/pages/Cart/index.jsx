@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux'
 
 import styles from './styles.module.scss'
 import { useNavigate } from 'react-router-dom'
+import ClearAllCartButton from '../../components/ClearAllCartButton'
 
 const Cart = () => {
   const items = useSelector((store) => store.cart.productsFromLocalStorage)
@@ -15,6 +16,7 @@ const Cart = () => {
       <div className={styles.main}>
         <div className={styles.left}>
           <h2 className={styles.h2}>Carrinho</h2>
+          <ClearAllCartButton />
           <div className={styles.tableTitles}>
             <h5>Produto</h5>
             <h5>Preço</h5>
