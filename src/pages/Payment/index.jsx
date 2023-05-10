@@ -1,18 +1,22 @@
 import React from 'react'
 import CartCard from '../../components/CartCard'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 import styles from './styles.module.scss'
 import boleto from '../../assets/boleto.svg'
 import visa from '../../assets/visa.svg'
 import mastercard from '../../assets/mastercard.svg'
 import elo from '../../assets/elo.svg'
+import { removeAllItemsFromCart } from '../../services/local_storage'
+import { totalItems } from '../../redux/actions/cart'
+import { useNavigate } from 'react-router-dom'
 // import { useNavigate } from 'react-router-dom'
 
 const Payment = () => {
   const items = useSelector((store) => store.cart.productsFromLocalStorage)
 
-  // const navigate = useNavigate()
+  const navigate = useNavigate()
+  const disp = useDispatch()
 
   return (
     <div className={styles.cartPage}>
@@ -48,11 +52,7 @@ const Payment = () => {
           </div>
         </div>
         <div className={styles.right}>
-          <form
-            // action="https://formsubmit.co/giovannasousa54@gmail.com"
-            // method="POST"
-            className={styles.form}
-          >
+          <form className={styles.form}>
             <h3 className={styles.h3}>Conclua seu pedido</h3>
             <div className={styles.inputs}>
               <input className={styles.input} placeholder="Nome completo" />
@@ -99,7 +99,12 @@ const Payment = () => {
               <button
                 className={styles.submitButton}
                 type="submit"
-                onClick={(e) => e.preventDefault()}
+                onClick={(e) => {
+                  e.preventDefault()
+                  navigate('/success')
+                  removeAllItemsFromCart()
+                  disp(totalItems())
+                }}
               >
                 Confirmar pedido
               </button>

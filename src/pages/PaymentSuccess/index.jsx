@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react'
 
 import styles from './styles.module.scss'
-// import SuccessIcon from '../../components/SuccessIcon'
 import success from '../../assets/success.gif'
 import { useNavigate } from 'react-router-dom'
 
@@ -18,6 +17,7 @@ const PaymentSuccess = () => {
       <div className={styles.popUp}>
         <img src={success} alt="success" />
         <h3>Pedido concluído com sucesso!</h3>
+        <p>Aguarde...</p>
       </div>
     </div>
   )
