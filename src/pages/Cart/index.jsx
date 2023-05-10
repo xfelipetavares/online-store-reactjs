@@ -53,7 +53,11 @@ const Cart = () => {
               )
               .toFixed(2)}
           </p>
-          <button type="button" onClick={() => navigate('/payment')}>
+          <button
+            className={styles.submitButton}
+            type="button"
+            onClick={() => navigate('/payment')}
+          >
             Avançar
           </button>
         </div>

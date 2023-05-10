@@ -8,6 +8,9 @@ import { useDispatch } from 'react-redux'
 import { totalItems } from '../../redux/actions/cart'
 
 import icon from '../../assets/freeShippingIcon.svg'
+import deleteIcon from '../../assets/deleteButton.svg'
+import minus from '../../assets/minus.svg'
+import plus from '../../assets/plus.svg'
 import styles from './styles.module.scss'
 import { NavLink } from 'react-router-dom'
 
@@ -28,7 +31,7 @@ const CartCard = ({ item }) => {
               dispatch(totalItems())
             }}
           >
-            X
+            <img src={deleteIcon} alt="" />
           </button>
         </div>
         <NavLink to={`/item/${item.id}`}>
@@ -48,7 +51,7 @@ const CartCard = ({ item }) => {
               }
             }}
           >
-            -
+            <img src={minus} alt="" />
           </button>
           <p className={styles.quantity}>{quantity}</p>
           <button
@@ -61,7 +64,7 @@ const CartCard = ({ item }) => {
               }
             }}
           >
-            +
+            <img src={plus} alt="" />
           </button>
         </div>
       </td>

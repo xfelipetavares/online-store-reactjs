@@ -10,6 +10,7 @@
 
     .img {
       width: min(9rem, 100%);
+      border-radius: 4px;
     }
 
     .deleteBtn {
@@ -17,10 +18,12 @@
       position: absolute;
       background: none;
       border: none;
-      color: red;
-      font-weight: 700;
-      right: -.5rem;
-      top: -0.7rem;
+      right: -.7rem;
+      top: -.7rem;
+
+      img {
+        width: 1.5rem;
+      }
     }
   }
 
@@ -46,34 +49,50 @@
 
   .addSubButtons {
     display: flex;
+    align-items: center;
     justify-content: center;
-    gap: 1rem;
 
     .addBtn {
       background: none;
       border: none;
-      color: var(--white);
+      height: 1.5rem;
+      
+      img {
+        width: 1.5rem;
+      }
     }
 
     .quantity {
       font-size: clamp(1rem, 4vw, 1.6rem);
+      width: 50%;
     }
 
     .subBtn {
       background: none;
       border: none;
-      color: var(--white);
+      height: 1.5rem;
+
+
+      img {
+        width: 1.5rem;
+        height: 1.5rem;
+      }
     }
   }
 }
 
 .icon {
   height: 2.39rem;
-  width: min(9.84rem, 10vw);
+  width: 100%;
 }
 
 .price {
   width: min(9rem, 100%);
   font-size: clamp(1rem, 2vw, 1.6rem);
   // border: solid blue 1px;
+}
+
+@media screen and (max-width: 570px) {
+  
+  
 }
