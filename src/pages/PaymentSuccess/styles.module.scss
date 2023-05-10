@@ -1,0 +1,22 @@
+.successPage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+
+  .popUp {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 50%;
+    height: 50%;
+    background: var(--white);
+    gap: 4rem;
+    border-radius: 10px;
+
+    img {
+      width: 12rem;
+    }
+  }
+}

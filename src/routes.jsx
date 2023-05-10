@@ -6,6 +6,7 @@ import Cart from './pages/Cart'
 import Payment from './pages/Payment'
 import NotFound from './pages/NotFound'
 import Product from './pages/Product'
+import PaymentSuccess from './pages/PaymentSuccess'
 // import { Container } from './styles';
 
 const SrcRoutes = () => (
@@ -15,6 +16,7 @@ const SrcRoutes = () => (
     <Route path="/cart" element={<Cart />} />
     <Route path="/payment" element={<Payment />} />
     <Route path="/item/:productId" element={<Product />} />
+    <Route path="/success" element={<PaymentSuccess />} />
     <Route path="*" element={<NotFound />} />
   </Routes>
 )
