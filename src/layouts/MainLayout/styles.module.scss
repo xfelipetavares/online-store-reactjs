@@ -7,8 +7,7 @@
 
     .sidebar {
       display: flex;
-      overflow-y: scroll;
-      width: 30rem;
+      width: var(--sidebar-width);
       height: calc(100vh - var(--header-height));
     }
     
@@ -20,8 +19,8 @@
   }
 }
 
-@media screen and (max-width: 830px) {
-  .sidebar {
-    display: none !important;
-  }
-}
+// @media screen and (max-width: 830px) {
+//   .sidebar {
+//     // display: none !important;
+//   }
+// }

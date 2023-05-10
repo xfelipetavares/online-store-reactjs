@@ -6,8 +6,6 @@ import {
 } from '../../services/mercado_livre_api'
 import styles from './styles.module.scss'
 import freeShippingIcon from '../../assets/freeShippingIcon.svg'
-import { CART, addItemLocalStorage } from '../../services/local_storage'
-import { totalItems } from '../../redux/actions/cart'
 import { NavLink } from 'react-router-dom'
 import ButtonAdd2Cart from '../ButtonAdd2Cart'
 
