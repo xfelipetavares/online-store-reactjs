@@ -16,8 +16,10 @@ const Cart = () => {
       <div className={styles.main}>
         <div className={styles.left}>
           <h2 className={styles.h2}>Carrinho</h2>
-          <ClearAllCartButton />
           <div className={styles.tableTitles}>
+            <div className={styles.clearButton}>
+              <ClearAllCartButton />
+            </div>
             <h5>Produto</h5>
             <h5>Preço</h5>
             <h5>Quant.</h5>

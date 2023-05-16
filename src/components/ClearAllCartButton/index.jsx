@@ -4,11 +4,13 @@ import { useDispatch } from 'react-redux'
 import { totalItems } from '../../redux/actions/cart'
 
 // import { Container } from './styles';
+import clearCart from '../../assets/clearCart.svg'
 
 const ClearAllCartButton = () => {
   const disp = useDispatch()
   return (
     <button
+      title="Remover todos os produtos"
       type="button"
       onClick={() => {
         removeAllItemsFromCart()
@@ -16,7 +18,7 @@ const ClearAllCartButton = () => {
         alert('Todos os itens do carrinho foram removidos. 🛒')
       }}
     >
-      Remover todos produtos do carrinho
+      <img src={clearCart} alt="Apagar todos os itens" />
     </button>
   )
 }
