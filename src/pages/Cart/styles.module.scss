@@ -96,19 +96,15 @@
 
 
       .submitButton {
-        display: flex;
-        justify-content: center;
-        align-items: center;
         background: var(--secondary-color);
         width: 50%;
         height: 4rem;
-        border-radius: 7px;
+        border-radius: 8px;
         border: none;
         color: white;
         margin-top: 1rem;
         font-weight: 700;
         font-size: 1.4rem;
-        line-height: 1.8rem;
       }
     }
   }
