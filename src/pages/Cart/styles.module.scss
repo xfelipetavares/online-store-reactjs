@@ -21,19 +21,35 @@
       color: white;
       height: 100%;
       overflow-y: auto;
-
+      position: relative;
+      
       .h2 {
         width: fit-content;
         height: fit-content;
         padding: 2rem;
         // border: solid red 1px;
       }
-
+      
+      
       .tableTitles {
         display: flex;
         width: clamp(5rem, 65vw, 110rem);
         justify-content: space-between;
         text-align: center;
+        
+        .clearButton {
+        position: absolute;
+        left: 3rem;
+        top: 2rem;
+        button {
+            width: 5.5rem;
+            background: none;
+            border: none;
+            img {
+              width: 100%;
+            }
+          }
+        }
 
         h5 {
           width: 100%;
@@ -105,6 +121,14 @@
 
     .left {
       width: 100% !important;
+
+      .clearButton {
+        left: 2rem !important;
+        button {
+          width: 4.5rem !important;
+        }
+
+      }
 
       .tableTitles {
         width: 100% !important;
