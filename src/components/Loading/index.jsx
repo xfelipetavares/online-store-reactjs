@@ -1,11 +1,16 @@
 import React from 'react'
-import loadingImage from '../../assets/loadingImage.svg'
+// import loadingImage from '../../assets/loadingImage.svg'
 import styles from './styles.module.scss'
 
 const Loading = () => (
-  <div className={styles.loading}>
-    <img src={loadingImage} alt="" />
-    {/* <p>Loading...</p> */}
+  <div className={styles.container}>
+    <div className={styles.loading}>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
   </div>
 )
 
