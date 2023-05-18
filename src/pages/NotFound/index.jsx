@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
-import notFound from '../../assets/notFound.svg'
+import sad from '../../assets/sad.svg'
 import happy from '../../assets/happy.svg'
 import styles from './styles.module.scss'
 import { useNavigate } from 'react-router-dom'
@@ -8,11 +8,15 @@ import { useNavigate } from 'react-router-dom'
 function NotFound() {
   const navigate = useNavigate()
   const [mood, setMood] = useState(false)
-  const [count, setCount] = useState(4)
+  const [count, setCount] = useState(null)
 
-  const counter = setInterval(() => {
-    setCount(count - 1)
-  }, 1000)
+  useEffect(() => {
+    if (count > 0) {
+      setTimeout(() => {
+        setCount((count) => count - 1)
+      }, 1000)
+    }
+  }, [count])
 
   return (
     <div className={styles.notFoundPage}>
@@ -22,7 +26,7 @@ function NotFound() {
       ) : (
         <h2>Vou redirecionar você :P !</h2>
       )}
-      <img src={!mood ? notFound : happy} alt="gatinho" />
+      <img src={!mood ? sad : happy} alt="gatinho" />
 
       <button
         onClick={() => {
@@ -31,7 +35,7 @@ function NotFound() {
             clearInterval()
             navigate('/')
           }, 3000)
-          counter()
+          setCount(3)
         }}
       >
         {!mood ? 'Voltar para a página inicial' : `${count}...`}
