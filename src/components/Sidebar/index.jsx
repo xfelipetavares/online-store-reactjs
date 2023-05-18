@@ -8,9 +8,11 @@ import { saveTerm, toggleSideBar } from '../../redux/actions/api'
 
 import styles from './styles.module.scss'
 import CloseSideBar from '../CloseSidebar'
+import { useNavigate } from 'react-router-dom'
 
 const Sidebar = () => {
   const dispatch = useDispatch()
+  const nav = useNavigate()
 
   useEffect(() => {
     dispatch(getCategories())
@@ -30,6 +32,7 @@ const Sidebar = () => {
             <li
               className={styles.category}
               onClick={() => {
+                nav('/')
                 dispatch(getCategoryProducts(id))
                 dispatch(saveTerm(name))
                 dispatch(toggleSideBar())
