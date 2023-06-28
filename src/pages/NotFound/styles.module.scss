@@ -1,0 +1,26 @@
+.notFoundPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  width: 100%;
+  height: 100%;
+  color: var(--white);
+
+  button {
+    background: var(--secondary-color);
+    width: fit-content;
+    padding: .8rem;
+    height: 4rem;
+    border-radius: 8px;
+    border: none;
+    color: white;
+    font-weight: 600;
+    font-size: 1.4rem;
+  }
+
+  img {
+    filter: contrast(150%);
+  }
+}

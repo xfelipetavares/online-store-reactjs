@@ -15,5 +15,6 @@
 
   img {
     width: clamp(5rem, 45vw, 75rem);
+    filter: contrast(150%);
   }
 }
