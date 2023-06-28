@@ -25,7 +25,7 @@ const Sidebar = () => {
       <div className={styles.toggleSideBar}>
         <CloseSideBar />
       </div>
-      <h3 className={styles.h3}>Categories</h3>
+      <h3 className={styles.h3}>Categorias</h3>
       <div className={styles.ulCategories}>
         {categories.map(({ id, name }) => (
           <ul key={id}>
