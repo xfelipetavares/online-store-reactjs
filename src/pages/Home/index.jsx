@@ -5,6 +5,7 @@ import ProductCard from '../../components/ProductCard'
 import Title from '../../components/Title'
 import { searchProducts } from '../../services/mercado_livre_api'
 import styles from './styles.module.scss'
+import Footer from '../../components/Footer'
 
 const Home = () => {
   const dispatch = useDispatch()
@@ -29,6 +30,7 @@ const Home = () => {
           ))}
         </div>
       )}
+      <Footer />
     </div>
   )
 }
