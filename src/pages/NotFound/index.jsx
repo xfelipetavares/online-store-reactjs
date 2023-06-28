@@ -37,6 +37,7 @@ function NotFound() {
           }, 3000)
           setCount(3)
         }}
+        disabled={mood}
       >
         {!mood ? 'Voltar para a página inicial' : `${count}...`}
       </button>
