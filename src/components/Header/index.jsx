@@ -44,7 +44,7 @@ const Header = () => {
           className={styles.input}
           type="text"
           value={term}
-          placeholder="Search"
+          placeholder="Pesquisar"
           onChange={({ target: { value } }) => {
             setTerm(value)
           }}
